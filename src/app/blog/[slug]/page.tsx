@@ -48,7 +48,6 @@ export default async function BlogPost({ params: { slug } }: BlogPostProps) {
           alt={frontmatter.title}
           width={1200}
           height={630}
-          quality={100}
           priority={true}
         />
         <div className="absolute bottom-0 h-1/3 w-full dark:bg-gradient-to-b dark:from-transparent dark:to-slate-800/50 shadow-lg" />
