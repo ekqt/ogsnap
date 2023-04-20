@@ -50,7 +50,6 @@ const HrefComponent = ({ path }: HrefComponent) => {
       />
       <span
         style={{
-          width: "auto",
           fontSize: 24,
           fontWeight: 500,
           padding: "0",
@@ -252,7 +251,7 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
           position: "absolute",
           width: 800,
           height: 300,
-          top: "-28%",
+          top: "-26%",
           left: "64%",
           opacity: "0.5",
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.29'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -260,9 +259,10 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
       ></div>
       <div
         style={{
-          display: "flex",
           position: "absolute",
-          padding: "60px",
+          display: "flex",
+          top: "60px",
+          left: "60px",
         }}
       >
         <HrefComponent path={path} />
@@ -283,6 +283,7 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
             display: "flex",
             paddingRight: `${path && hasTags ? "120px" : "0"}`,
             textAlign: `${path && hasTags ? "start" : "center"}`,
+            paddingTop: `${path && hasTags ? "0" : "24px"}`,
           }}
         >
           <TitleComponent title={title} />
@@ -353,9 +354,9 @@ export default async function handler(req: NextRequest) {
     return new ImageResponse(
       <ImageComponent path={path} title={title} hasTags={hasTags} />,
       {
-        debug: false,
+        debug: true,
         width: 1200,
-        height: 600,
+        height: 630,
         fonts: [
           {
             name: "Inter",
