@@ -15,8 +15,9 @@ export const metadata = {
   openGraph: {
     title: "Blog",
     description: "Learn how to build applications with React and Next 13",
-    url: `/api/og?title=${encodeURI("From the Blog")}&path=blog`,
-    siteName: "MailingUI",
+    images: [`/api/og?title=${encodeURI("From the Blog")}&path=blog`],
+    url: "https://mdx-blog-starter-mu.vercel.app/blog",
+    siteName: "MDX Blog Starter",
     locale: "en-US",
     type: "website",
   },

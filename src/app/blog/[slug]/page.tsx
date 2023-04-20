@@ -21,8 +21,9 @@ export async function generateMetadata({
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.description,
-      url: `/api/og?title=${encodeURI(frontmatter.title)}&path=blog&tags`,
-      siteName: "MailingUI",
+      images: [`/api/og?title=${encodeURI(frontmatter.title)}&path=blog&tags`],
+      url: `https://mdx-blog-starter-mu.vercel.app/blog${slug}`,
+      siteName: "MDX Blog Starter",
       locale: "en-US",
       type: "website",
     },

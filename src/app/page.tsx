@@ -9,8 +9,11 @@ export const metadata = {
   openGraph: {
     title: "MDX Blog Starter",
     description: "Generated for MDX React RSC Next 13 and TailwindCSS",
-    url: `/api/og?title=${encodeURI("MDX Blog Starter")}`,
-    siteName: "MailingUI",
+    images: [
+      `/api/og?title=${encodeURI("Build a Blog Powered by Server Components")}`,
+    ],
+    url: "https://mdx-blog-starter-mu.vercel.app/",
+    siteName: "MDX Blog Starter",
     locale: "en-US",
     type: "website",
   },
