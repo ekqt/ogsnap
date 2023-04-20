@@ -9,11 +9,13 @@ import { getPosts } from "@utils/mdx";
 import Link from "next/link";
 
 export const metadata = {
+  metadataBase: new URL("https://mdx-blog-starter-mu.vercel.app/"),
   title: "Blog",
   description: "Learn how to build applications with React and Next 13",
   openGraph: {
     title: "Blog",
     description: "Learn how to build applications with React and Next 13",
+    url: `/api/og?title=${encodeURI("From the Blog")}&path=blog`,
     siteName: "MailingUI",
     locale: "en-US",
     type: "website",

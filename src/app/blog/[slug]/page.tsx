@@ -2,6 +2,7 @@ import { ProseH1, ProseLead, ProseSmall } from "@components/typography";
 import { blogDir } from "@config/blog";
 import { getPost, getPosts } from "@utils/mdx";
 import { type Metadata } from "next";
+import Image from "next/image";
 
 type BlogPostProps = {
   params: {
@@ -14,11 +15,13 @@ export async function generateMetadata({
 }: BlogPostProps): Promise<Metadata> {
   const { frontmatter } = await getPost(blogDir, slug);
   return {
+    metadataBase: new URL("https://mdx-blog-starter-mu.vercel.app/"),
     title: frontmatter.title,
     description: frontmatter.description,
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.description,
+      url: `/api/og?title=${encodeURI(frontmatter.title)}&path=blog&tags`,
       siteName: "MailingUI",
       locale: "en-US",
       type: "website",
@@ -38,6 +41,17 @@ export default async function BlogPost({ params: { slug } }: BlogPostProps) {
         <ProseH1 className="mt-2.5">{frontmatter.title}</ProseH1>
         <ProseLead>{frontmatter.description}</ProseLead>
       </header>
+      <div className="relative overflow-hidden rounded-xl">
+        <Image
+          src={`/api/og?title=${encodeURI(frontmatter.title)}&path=blog&tags`}
+          alt={frontmatter.title}
+          width={1200}
+          height={630}
+          quality={100}
+          priority={true}
+        />
+        <div className="absolute bottom-0 h-1/3 w-full dark:bg-gradient-to-b dark:from-transparent dark:to-slate-800/50 shadow-lg" />
+      </div>
       <article className="prose max-w-none lg:prose-xl">{content}</article>
     </div>
   );

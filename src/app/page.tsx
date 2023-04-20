@@ -3,11 +3,13 @@ import { ProseH1, ProseLead } from "@components/typography";
 import Link from "next/link";
 
 export const metadata = {
+  metadataBase: new URL("https://mdx-blog-starter-mu.vercel.app/"),
   title: "MDX Blog Starter",
   description: "Generated for MDX React RSC Next 13 and TailwindCSS",
   openGraph: {
     title: "MDX Blog Starter",
     description: "Generated for MDX React RSC Next 13 and TailwindCSS",
+    url: `/api/og?title=${encodeURI("MDX Blog Starter")}`,
     siteName: "MailingUI",
     locale: "en-US",
     type: "website",
@@ -23,7 +25,7 @@ export default function Home() {
         and Next 13
       </ProseLead>
       <div className="py-4 flex md:flex-row flex-col items-center justify-center gap-2">
-        <Link href="#">
+        <Link href="https://github.com/ekqt/mdx-blog-starter">
           <Button>Visit GitHub</Button>
         </Link>
         <Link href="/blog">
