@@ -354,7 +354,7 @@ export default async function handler(req: NextRequest) {
     return new ImageResponse(
       <ImageComponent path={path} title={title} hasTags={hasTags} />,
       {
-        debug: true,
+        debug: false,
         width: 1200,
         height: 630,
         fonts: [
