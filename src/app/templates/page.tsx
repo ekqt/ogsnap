@@ -1,5 +1,3 @@
-import Link from "next/link";
-import type { Metadata } from "next";
 import {
   ProseH1,
   ProseH3,
@@ -8,17 +6,20 @@ import {
 } from "@components/typography";
 import { baseMetadata } from "@config/meta";
 import { getPosts, blogDir } from "@lib/mdx";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Blog",
-  description: "From the blog",
+  title: "Templates",
+  description: "Explore our templates",
   openGraph: {
     ...baseMetadata.openGraph,
-    title: "Blog",
-    description: "From the blog",
-    images: [`/api/og?title=${encodeURI("From the blog")}&path=blog`],
-    url: `/blog`,
+    title: "Templates",
+    description: "Explore our templates",
+    images: [
+      `/api/og?title=${encodeURI("Explore our templates")}&path=templates`,
+    ],
+    url: `/templates`,
   },
 };
 
@@ -28,7 +29,7 @@ export default async function Blog() {
   return (
     <div className="py-12">
       <header>
-        <ProseH1>From the blog</ProseH1>
+        <ProseH1>Explore our templates</ProseH1>
         <ProseLead>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </ProseLead>
@@ -39,15 +40,7 @@ export default async function Blog() {
             key={post.id}
             className="grid place-content-start group relative space-y-2"
           >
-            <ProseSmall>
-              <time dateTime={post.date}>{post.date}</time>
-            </ProseSmall>
-            <ProseH3>
-              <Link href={`/blog/${post.slug}`}>
-                <span className="absolute inset-0" />
-                {post.title}
-              </Link>
-            </ProseH3>
+            <ProseH3>Template</ProseH3>
             <ProseSmall className="line-clamp-2">{post.description}</ProseSmall>
           </article>
         ))}

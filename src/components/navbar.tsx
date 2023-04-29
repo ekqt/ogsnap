@@ -8,7 +8,7 @@ export function Navbar() {
     <div className="px-6 pt-12 pb-2 ">
       <nav className="max-w-4xl mx-auto grid">
         <Link href="/">
-          <ProseH3 className="mt-0">Blog</ProseH3>
+          <ProseH3 className="mt-0 font-extrabold">OG Snap</ProseH3>
         </Link>
         <section className="flex place-self-end">
           {navigation.map(({ label, href }, key) => (

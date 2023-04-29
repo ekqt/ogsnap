@@ -138,7 +138,10 @@ const ProseSmall = forwardRef<
   const { children, className, ...otherProps } = props;
   return (
     <p
-      className={cn("mt-1 text-sm leading-relaxed opacity-70", className)}
+      className={cn(
+        "mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400",
+        className
+      )}
       ref={ref}
       {...otherProps}
     >

@@ -1,15 +1,62 @@
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
-import { compileMDX, type CompileMDXResult } from "next-mdx-remote/rsc";
 import {
-  components,
-  fileExtension,
-  frontmatterSchema,
-  metaSchema,
-  type FrontMatter,
-  type PostMeta,
-} from "@config/blog";
+  compileMDX,
+  MDXRemoteProps,
+  type CompileMDXResult,
+} from "next-mdx-remote/rsc";
+import { z } from "zod";
 import rehypeSlug from "rehype-slug";
+import {
+  ProseAnchor,
+  ProseBlockquote,
+  ProseH1,
+  ProseH2,
+  ProseH3,
+  ProseH4,
+  ProseInlineCode,
+  ProseP,
+  ProseStrong,
+  ProseUL,
+} from "@components/typography";
+
+// ⚙️ Config settings
+export const blogDir = "src/content";
+const fileExtension = ".mdx";
+
+// ⚙️ Type definitions
+
+const frontmatterSchema = z.object(
+  {
+    title: z.string({
+      required_error: "Title is required",
+    }),
+    date: z.string({
+      required_error: "Date is required",
+    }),
+    description: z.string({
+      required_error: "Description is required",
+    }),
+    author: z.string({
+      required_error: "Author is required",
+    }),
+    github: z.optional(z.string()),
+  },
+  {
+    required_error: "Post not found",
+  }
+);
+
+type FrontMatter = z.infer<typeof frontmatterSchema>;
+
+const metaSchema = frontmatterSchema.extend({
+  id: z.string(),
+  slug: z.string(),
+});
+
+type PostMeta = z.infer<typeof metaSchema>;
+
+// 🧪 Helper functions
 
 function filenameToId(filename: string): string {
   return filename.toLowerCase().replace(fileExtension, "");
@@ -27,6 +74,23 @@ function getFilename(slug: string): string {
   return filename + fileExtension;
 }
 
+// ⬇️ Component mappings
+
+const components = {
+  h1: ProseH1,
+  h2: ProseH2,
+  h3: ProseH3,
+  h4: ProseH4,
+  p: ProseP,
+  a: ProseAnchor,
+  strong: ProseStrong,
+  blockquote: ProseBlockquote,
+  ul: ProseUL,
+  code: ProseInlineCode,
+} as MDXRemoteProps["components"];
+
+// 🟢 RSC Available Functions
+
 export async function getPosts(blogDir: string): Promise<PostMeta[]> {
   // ⬇️ Read our designated file directory
   const files = readdirSync(blogDir);
@@ -40,12 +104,15 @@ export async function getPosts(blogDir: string): Promise<PostMeta[]> {
         options: { parseFrontmatter: true },
       });
       // ⬇️ Parse its frontmatter
-      const { title, date, description } = frontmatterSchema.parse(frontmatter);
+      const { title, date, description, author, github } =
+        frontmatterSchema.parse(frontmatter);
       // ⬇️ Return parsed meta data with an included id and slug
       return metaSchema.parse({
         title,
         date,
         description,
+        author,
+        github,
         id: filenameToId(filename),
         slug: slugify(filename, title),
       });
