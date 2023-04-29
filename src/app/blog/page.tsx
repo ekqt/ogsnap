@@ -5,7 +5,7 @@ import {
   ProseH3,
   ProseLead,
   ProseSmall,
-} from "@components/typography";
+} from "@components/Typography";
 import { baseMetadata } from "@config/meta";
 import { getPosts, blogDir } from "@lib/mdx";
 

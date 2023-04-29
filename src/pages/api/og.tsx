@@ -1,70 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse, type NextRequest } from "next/server";
 import { CSSProperties, ComponentPropsWithoutRef } from "react";
+import { HrefComponent } from "src/library/components/HrefComponent";
 
 export const config = {
   runtime: "edge",
 };
 
-const AnchorIcon = (
-  props: Omit<ComponentPropsWithoutRef<"svg">, "viewBox">
-) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="2"
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-      />
-    </svg>
-  );
-};
-
-type HrefComponent = {
-  path: string;
-};
-
-const HrefComponent = ({ path }: HrefComponent) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-        margin: "0",
-        padding: "0",
-      }}
-    >
-      <AnchorIcon
-        style={{
-          height: "24px",
-          width: "24px",
-        }}
-      />
-      <span
-        style={{
-          fontSize: 24,
-          fontWeight: 500,
-          padding: "0",
-          margin: "0",
-        }}
-      >
-        {`hectorsosa.me/${path}`}
-      </span>
-    </div>
-  );
-};
-
-const GitHubIcon = (
-  props: Omit<ComponentPropsWithoutRef<"svg">, "viewBox">
-) => {
+const GitHubIcon = (props: ComponentPropsWithoutRef<"svg">) => {
   return (
     <>
       <svg
@@ -88,9 +31,7 @@ const GitHubIcon = (
   );
 };
 
-const TwitterIcon = (
-  props: Omit<ComponentPropsWithoutRef<"svg">, "viewBox">
-) => {
+const TwitterIcon = (props: ComponentPropsWithoutRef<"svg">) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +206,7 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
           left: "60px",
         }}
       >
-        <HrefComponent path={path} />
+        <HrefComponent baseUrl="ogsnap.io" path={path} />
       </div>
       <div
         style={{

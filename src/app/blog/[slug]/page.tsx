@@ -3,7 +3,7 @@ import {
   ProseLead,
   ProseSmall,
   ProseSubtle,
-} from "@components/typography";
+} from "@components/Typography";
 import { baseMetadata } from "@config/meta";
 import { getPost, getPosts, blogDir } from "@lib/mdx";
 import { type Metadata } from "next";

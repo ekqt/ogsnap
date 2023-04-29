@@ -1,5 +1,5 @@
-import { Button } from "@components/button";
-import { ProseH1, ProseLead } from "@components/typography";
+import { Button } from "@components/Button";
+import { ProseH1, ProseLead } from "@components/Typography";
 import { baseMetadata } from "@config/meta";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -19,9 +19,9 @@ export default function Home() {
         <Link className="w-full md:w-fit" href="https://github.com/ekqt/ogsnap">
           <Button>Visit GitHub</Button>
         </Link>
-        <Link className="w-full md:w-fit" href="/templates">
+        <Link className="w-full md:w-fit" href="/components">
           <Button variant="link">
-            Go to Templates <span aria-hidden="true">→</span>
+            Go to Components <span aria-hidden="true">→</span>
           </Button>
         </Link>
       </div>

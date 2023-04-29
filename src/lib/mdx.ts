@@ -18,10 +18,10 @@ import {
   ProseP,
   ProseStrong,
   ProseUL,
-} from "@components/typography";
+} from "@components/Typography";
 
 // ⚙️ Config settings
-export const blogDir = "src/content";
+export const blogDir = "src/blog";
 const fileExtension = ".mdx";
 
 // ⚙️ Type definitions

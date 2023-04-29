@@ -10,3 +10,36 @@
   -moz-box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
+
+.shiki {
+  @apply m-0 py-6 rounded-md shadow-lg overflow-x-scroll w-full;
+}
+
+.shiki code {
+  @apply grid;
+}
+
+.shiki .line {
+  @apply px-7 text-sm inline-flex leading-6 relative;
+}
+
+.shiki .line[data-line]:before {
+  @apply content-[attr(data-line)] text-slate-500 opacity-40 -ml-2 mr-5 inline-flex justify-end min-w-[2ch];
+}
+
+.shiki .line[data-line][data-add-line]:before {
+  @apply content-["+"];
+}
+
+.shiki .line[data-line][data-remove-line]:before {
+  @apply content-["-"];
+}
+
+.shiki .line[data-add-line]:after {
+  @apply bg-green-700 opacity-20 content-[""] inset-0 absolute
+    pointer-events-none w-full;
+}
+
+.shiki .line[data-remove-line]:after {
+  @apply bg-red-700 opacity-20 content-[""] inset-0 absolute pointer-events-none w-full;
+}

@@ -4,8 +4,8 @@ export const navigation: { label: string; href: string }[] = [
     href: "/",
   },
   {
-    label: "Templates",
-    href: "/templates",
+    label: "Components",
+    href: "/components",
   },
   {
     label: "Blog",
