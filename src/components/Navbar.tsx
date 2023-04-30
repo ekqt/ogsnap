@@ -7,23 +7,23 @@ export function Navbar() {
   return (
     <div className="px-6 pt-12 pb-2 ">
       <nav className="max-w-4xl mx-auto grid">
-        <Link href="/">
-          <ProseH3 className="mt-0 font-extrabold flex items-center justify-center w-fit gap-1">
+        <Link className="w-fit" href="/">
+          <ProseH3 className="mt-0 font-extrabold flex items-center justify-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth="2"
+              strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 lg:w-8 lg:h-8"
+              className="w-9 h-9"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"
+                d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"
               />
             </svg>
-            OG Snap
+            OpenGraph
           </ProseH3>
         </Link>
         <section className="flex justify-end flex-wrap pt-4 sm:pt-0">

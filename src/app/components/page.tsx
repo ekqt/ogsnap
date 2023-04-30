@@ -1,4 +1,4 @@
-import { components } from "src/library/components/components";
+import { components } from "src/library/components";
 import { Preview } from "@components/preview/Preview";
 import {
   ProseH1,

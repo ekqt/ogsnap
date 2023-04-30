@@ -1,11 +1,9 @@
-import { CSSProperties } from "react";
-
 export const TagComponent = ({
   label,
   background,
 }: {
   label: string;
-  background: CSSProperties["background"];
+  background: React.CSSProperties["background"];
 }) => {
   return (
     <span
