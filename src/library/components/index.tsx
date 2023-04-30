@@ -29,6 +29,7 @@ export const components: Components = [
           <TitleComponent
             title="A Powerful Open-Sourced Dynamic Image Generation Library"
             textAlign="center"
+            fontSize={"52px"}
           />
         ),
         filename: "TitleComponent.tsx",
@@ -36,7 +37,10 @@ export const components: Components = [
       {
         name: "Title with left align",
         component: (
-          <TitleComponent title="A Powerful Open-Sourced Dynamic Image Generation Library" />
+          <TitleComponent
+            title="A Powerful Open-Sourced Dynamic Image Generation Library"
+            fontSize={"52px"}
+          />
         ),
         filename: "TitleComponent.tsx",
       },

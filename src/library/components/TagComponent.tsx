@@ -10,7 +10,7 @@ export const TagComponent = ({
       style={{
         background,
         padding: "9px 18px",
-        borderRadius: "18px",
+        borderRadius: "12px",
         fontSize: "16px",
         fontWeight: 700,
         color: "#f8fafc",

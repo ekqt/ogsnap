@@ -1,9 +1,11 @@
 export const TitleComponent = ({
   title,
   textAlign = "left",
+  fontSize = "62px",
 }: {
   title: string;
   textAlign?: "left" | "center";
+  fontSize?: React.CSSProperties["fontSize"];
 }) => {
   return (
     <div
@@ -16,7 +18,7 @@ export const TitleComponent = ({
     >
       <h1
         style={{
-          fontSize: "48px",
+          fontSize,
           lineHeight: 1,
           fontWeight: 700,
           letterSpacing: "-0.04em",
