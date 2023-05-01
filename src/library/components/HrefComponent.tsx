@@ -22,7 +22,9 @@ export const HrefComponent = ({
         strokeWidth="2"
         stroke="currentColor"
         style={{
+          minHeight: "24px",
           height: "24px",
+          minWidth: "24px",
           width: "24px",
         }}
       >

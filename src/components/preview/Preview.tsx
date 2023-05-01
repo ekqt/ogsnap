@@ -8,20 +8,20 @@ import { EyeIcon } from "./EyeIcon";
 import { ReactNode } from "react";
 
 export function Preview({
-  title,
+  name,
   code,
   srcCode,
-  component,
+  preview,
 }: {
-  title: string;
+  name: string;
   code: string;
   srcCode: string;
-  component: ReactNode;
+  preview: ReactNode;
 }) {
   return (
     <Tabs defaultValue="preview">
       <header className="flex justify-end items-center gap-3">
-        <ProseSubtle className="mr-auto">{title}</ProseSubtle>
+        <ProseSubtle className="mr-auto">{name}</ProseSubtle>
         <TabsList>
           <TabsTrigger value="preview">
             <EyeIcon className="h-4 w-4" />
@@ -34,19 +34,19 @@ export function Preview({
         <CopyButton code={srcCode} />
       </header>
       <TabsContent value="preview">
-        <div className="grid h-[20rem] w-full place-content-center overflow-scroll rounded-md border border-slate-200 p-6 dark:border-slate-700">
+        <div className="w-full grid grid-cols-1 overflow-scroll rounded-md border border-slate-200 p-6 dark:border-slate-700">
           <div
             style={{
               all: "unset",
             }}
           >
-            {component}
+            {preview}
           </div>
         </div>
       </TabsContent>
       <TabsContent value="code">
         <div
-          className="h-[20rem] w-full overflow-scroll rounded-md border border-slate-200 dark:border-slate-700"
+          className="w-full overflow-scroll rounded-md border border-slate-200 dark:border-slate-700"
           dangerouslySetInnerHTML={{ __html: code }}
         />
       </TabsContent>

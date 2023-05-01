@@ -29,7 +29,7 @@ export default async function Blog() {
     <div className="py-12">
       <header>
         <ProseH1>From the blog</ProseH1>
-        <ProseLead>Learn what&apos;s cooking behind the scenes...</ProseLead>
+        <ProseLead>Learn more about this project</ProseLead>
       </header>
       <section className="grid grid-cols-1 border-t gap-y-8 border-gray-500/20 py-10 my-10">
         {posts.map((post) => (

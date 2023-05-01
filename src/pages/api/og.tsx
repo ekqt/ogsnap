@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse, type NextRequest } from "next/server";
 import { HrefComponent } from "src/library/components/HrefComponent";
 import { GitHubIcon } from "src/library/components/Icons/GitHubIcon";
@@ -78,7 +77,7 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
           left: "60px",
         }}
       >
-        <HrefComponent baseUrl="ogsnap.io" path={path} />
+        <HrefComponent baseUrl="opengraphui.com" path={path} />
       </div>
       <div
         style={{

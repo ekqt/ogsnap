@@ -7,11 +7,8 @@ import {
   ProseSmall,
 } from "@components/Typography";
 import { baseMetadata } from "@config/meta";
-import { highlight } from "@lib/shiki";
-import { readFileSync } from "fs";
+import { getHighlighter, getCode, highlight } from "@lib/shiki";
 import type { Metadata } from "next";
-import { join } from "path";
-import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -29,27 +26,31 @@ export const metadata: Metadata = {
 };
 
 export default async function Components() {
+  const components = await getComponents();
+
   return (
     <div className="py-12">
       <header>
         <ProseH1>Explore our components</ProseH1>
-        <ProseLead>Build engaging images fast with our components</ProseLead>
+        <ProseLead>Build engaging Open Graph images fast</ProseLead>
       </header>
       <section className="grid grid-cols-1 border-t gap-y-8 border-gray-500/20 py-10 my-10">
-        {components.map((type, index) => (
+        {components.map(({ name, description, componentPreviews }, index) => (
           <article key={index} className="grid grid-cols-1 space-y-2">
-            <ProseH3 className="mt-0">{type.name}</ProseH3>
-            <ProseSmall className="line-clamp-2">{type.description}</ProseSmall>
+            <ProseH3 className="mt-0">{name}</ProseH3>
+            <ProseSmall className="line-clamp-2">{description}</ProseSmall>
             <div className="grid grid-cols-1 space-y-6">
-              {type.previews.map((c, index) => (
-                /* @ts-expect-error Server Component */
-                <PreviewContainer
-                  key={index}
-                  name={c.name}
-                  filename={c.filename}
-                  component={c.component}
-                />
-              ))}
+              {componentPreviews.map(
+                ({ name, code, srcCode, preview }, index) => (
+                  <Preview
+                    key={index}
+                    name={name}
+                    code={code}
+                    srcCode={srcCode}
+                    preview={preview}
+                  />
+                )
+              )}
             </div>
           </article>
         ))}
@@ -58,27 +59,23 @@ export default async function Components() {
   );
 }
 
-async function PreviewContainer({
-  name,
-  filename,
-  component,
-}: {
-  name: string;
-  filename: string;
-  component: ReactNode;
-}) {
-  const srcCode = readFileSync(
-    join("./src/library/components", filename),
-    "utf8"
-  );
+async function getComponents() {
+  const highlighter = await getHighlighter();
 
-  const code = await highlight(srcCode, {
-    lang: "tsx",
-    theme: "github-dark",
-    showLineNumbers: true,
-  });
-
-  return (
-    <Preview title={name} code={code} srcCode={srcCode} component={component} />
+  return await Promise.all(
+    components.map(async (type) => ({
+      ...type,
+      componentPreviews: await Promise.all(
+        type.componentPreviews.map(async (component) => {
+          const srcCode = getCode(component.filename);
+          const code = await highlight(highlighter, srcCode);
+          return {
+            ...component,
+            code,
+            srcCode,
+          };
+        })
+      ),
+    }))
   );
 }

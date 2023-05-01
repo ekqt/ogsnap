@@ -16,7 +16,7 @@ export default function RootLayout({
         className={`${inter.className} bg-white dark:bg-slate-800 text-slate-800 dark:text-white transition-colors`}
       >
         <Navbar />
-        <main className="mx-auto max-w-3xl p-6 2xl:max-w-4xl min-h-screen relative">
+        <main className="mx-auto max-w-3xl p-6 min-h-screen relative">
           <Blob />
           {children}
         </main>

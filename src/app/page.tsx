@@ -10,10 +10,11 @@ export default function Home() {
   return (
     <div className="py-28 md:py-32 grid place-content-center md:text-center gap-2">
       <ProseH1 className="mt-0 text-4xl md:text-5xl lg:text-6xl">
-        Build Engaging Images fast with Dynamic Image Generation
+        Build Engaging Open Graph Images Fast
       </ProseH1>
       <ProseLead>
-        Transform your visual content with dynamic image generation
+        Level-up your content with dynamic image generation using our pre-build
+        components and templates
       </ProseLead>
       <div className="py-4 flex md:flex-row flex-col items-center justify-center gap-2">
         <Link className="w-full md:w-fit" href="https://github.com/ekqt/ogsnap">

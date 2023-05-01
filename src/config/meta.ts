@@ -2,18 +2,16 @@ import type { Metadata } from "next";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL("https://ogsnap.vercel.app"),
-  title: "OG Snap",
-  description: "Build Engaging Images fast with Dynamic Image Generation",
+  title: "OpenGraph UI",
+  description: "Build Engaging Open Graph Images Fast",
   openGraph: {
-    title: "OG Snap",
-    description: "Build Engaging Images fast with Dynamic Image Generation",
+    title: "OpenGraph UI",
+    description: "Build Engaging Open Graph Images Fast",
     images: [
-      `/api/og?title=${encodeURI(
-        "Build Engaging Images fast with Dynamic Image Generation"
-      )}`,
+      `/api/og?title=${encodeURI("Build Engaging Open Graph Images Fast")}`,
     ],
     url: "https://ogsnap.vercel.app",
-    siteName: "OG Snap",
+    siteName: "OpenGraph UI",
     locale: "en-US",
     type: "website",
   },

@@ -7,51 +7,36 @@ import { GitHubIcon } from "./Icons/GitHubIcon";
 import { TwitterIcon } from "./Icons/TwitterIcon";
 
 type Components = {
-  type: string;
   name: string;
   description: string;
-  previews: {
+  componentPreviews: {
     name: string;
-    component: ReactNode;
     filename: string;
+    preview: ReactNode;
   }[];
 }[];
 
 export const components: Components = [
   {
-    type: "general",
     name: "The Basics",
     description: "Components that could be used everywhere",
-    previews: [
+    componentPreviews: [
       {
-        name: "Title centered",
-        component: (
-          <TitleComponent
-            title="A Powerful Open-Sourced Dynamic Image Generation Library"
-            textAlign="center"
-            fontSize={"52px"}
-          />
-        ),
+        name: "Dynamic Title",
         filename: "TitleComponent.tsx",
-      },
-      {
-        name: "Title with left align",
-        component: (
-          <TitleComponent
-            title="A Powerful Open-Sourced Dynamic Image Generation Library"
-            fontSize={"52px"}
-          />
+        preview: (
+          <TitleComponent title="A Powerful Open-Sourced Dynamic Image Generation Library" />
         ),
-        filename: "TitleComponent.tsx",
       },
       {
         name: "Link with Icon",
-        component: <HrefComponent baseUrl="ogsnap.io" path="components" />,
         filename: "HrefComponent.tsx",
+        preview: <HrefComponent baseUrl="ogsnap.io" path="components" />,
       },
       {
         name: "Social with Icon",
-        component: (
+        filename: "SocialComponent.tsx",
+        preview: (
           <div
             style={{
               display: "flex",
@@ -82,11 +67,11 @@ export const components: Components = [
             />
           </div>
         ),
-        filename: "SocialComponent.tsx",
       },
       {
         name: "Tag with Background",
-        component: (
+        filename: "TagComponent.tsx",
+        preview: (
           <div
             style={{
               display: "flex",
@@ -103,7 +88,6 @@ export const components: Components = [
             />
           </div>
         ),
-        filename: "TagComponent.tsx",
       },
     ],
   },
