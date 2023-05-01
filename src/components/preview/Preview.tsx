@@ -34,7 +34,7 @@ export function Preview({
         <CopyButton code={srcCode} />
       </header>
       <TabsContent value="preview">
-        <div className="w-full grid grid-cols-1 overflow-scroll rounded-md border border-slate-200 p-6 dark:border-slate-700">
+        <div className="w-full grid grid-cols-1 overflow-scroll rounded-md border border-slate-200 p-9 dark:border-slate-700">
           <div
             style={{
               all: "unset",
