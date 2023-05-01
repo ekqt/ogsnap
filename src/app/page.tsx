@@ -13,7 +13,7 @@ export default function Home() {
         Build Engaging Open Graph Images Fast
       </ProseH1>
       <ProseLead>
-        Level-up your content with dynamic image generation using our pre-build
+        Level up your content with dynamic image generation using our pre-built
         components and templates
       </ProseLead>
       <div className="py-4 flex md:flex-row flex-col items-center justify-center gap-2">

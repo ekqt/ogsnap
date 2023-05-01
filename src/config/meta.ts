@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL("https://ogsnap.vercel.app"),
+  metadataBase: new URL("https://opengraphui.vercel.app"),
   title: "OpenGraph UI",
   description: "Build Engaging Open Graph Images Fast",
   openGraph: {
@@ -10,7 +10,7 @@ export const baseMetadata: Metadata = {
     images: [
       `/api/og?title=${encodeURI("Build Engaging Open Graph Images Fast")}`,
     ],
-    url: "https://ogsnap.vercel.app",
+    url: "https://opengraphui.vercel.app",
     siteName: "OpenGraph UI",
     locale: "en-US",
     type: "website",

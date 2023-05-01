@@ -25,13 +25,13 @@ export const components: Components = [
         name: "Dynamic Title",
         filename: "TitleComponent.tsx",
         preview: (
-          <TitleComponent title="A Powerful Open-Sourced Dynamic Image Generation Library" />
+          <TitleComponent title="A Powerful Open Source Image Generation Library" />
         ),
       },
       {
         name: "Link with Icon",
         filename: "HrefComponent.tsx",
-        preview: <HrefComponent baseUrl="ogsnap.io" path="components" />,
+        preview: <HrefComponent baseUrl="opengraphui.com" path="components" />,
       },
       {
         name: "Social with Icon",

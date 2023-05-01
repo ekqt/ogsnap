@@ -71,7 +71,7 @@ export default async function BlogPost({ params: { slug } }: BlogPostProps) {
           src={
             frontmatter?.github
               ? `http://avatars.githubusercontent.com/${frontmatter.github}`
-              : "https://github.com/identicons/webscopeio.png"
+              : "https://github.com/identicons/ekqt.png"
           }
           className="overflow-hidden rounded-full"
         />
