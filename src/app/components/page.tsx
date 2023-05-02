@@ -39,7 +39,7 @@ export default async function Components() {
           <article key={index} className="grid grid-cols-1 space-y-2">
             <ProseH3 className="mt-0">{name}</ProseH3>
             <ProseSmall className="line-clamp-2">{description}</ProseSmall>
-            <div className="grid grid-cols-1 space-y-6">
+            <div className="grid grid-cols-1 space-y-6 h-fit">
               {componentPreviews.map(
                 ({ name, code, srcCode, preview }, index) => (
                   <Preview

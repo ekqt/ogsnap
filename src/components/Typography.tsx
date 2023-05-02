@@ -282,7 +282,7 @@ const ProseInlineCode = forwardRef<
   const { children, ...otherProps } = props;
   return (
     <code
-      className="whitespace-nowrap rounded bg-slate-200 py-[0.2rem] px-[0.3rem] font-mono font-medium dark:bg-slate-800 dark:text-slate-100"
+      className="whitespace-nowrap rounded bg-slate-200 py-[0.2rem] px-[0.3rem] font-mono font-medium dark:bg-slate-700 dark:text-slate-100"
       ref={ref}
       {...otherProps}
     >

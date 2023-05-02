@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="py-28 md:py-32 grid place-content-center md:text-center gap-2">
       <ProseH1 className="mt-0 text-4xl md:text-5xl lg:text-6xl">
-        Build Engaging Open Graph Images Fast
+        Build engaging Open Graph images faster
       </ProseH1>
       <ProseLead>
         Level up your content with dynamic image generation using our pre-built
