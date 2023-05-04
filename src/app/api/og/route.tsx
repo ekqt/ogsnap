@@ -1,4 +1,4 @@
-import { ImageResponse, type NextRequest } from "next/server";
+import { ImageResponse } from "next/server";
 import { HrefComponent } from "src/library/components/HrefComponent";
 import { GitHubIcon } from "src/library/components/Icons/GitHubIcon";
 import { TwitterIcon } from "src/library/components/Icons/TwitterIcon";
@@ -6,9 +6,7 @@ import { SocialComponent } from "src/library/components/SocialComponent";
 import { TagComponent } from "src/library/components/TagComponent";
 import { TitleComponent } from "src/library/components/TitleComponent";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
 type ImageComponentProps = {
   path: string;
@@ -155,9 +153,19 @@ const ImageComponent = ({ path, title, hasTags }: ImageComponentProps) => {
   );
 };
 
-export default async function handler(req: NextRequest) {
+const fetchInterMedium = () =>
+  fetch(new URL("../../../../public/Inter-Medium.ttf", import.meta.url)).then(
+    (res) => res.arrayBuffer()
+  );
+
+const fetchInterBold = () =>
+  fetch(new URL("../../../../public/Inter-Bold.ttf", import.meta.url)).then(
+    (res) => res.arrayBuffer()
+  );
+
+export async function GET(request: Request) {
   try {
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(request.url);
 
     const hasTitle = searchParams.has("title");
     const title = hasTitle
@@ -169,13 +177,9 @@ export default async function handler(req: NextRequest) {
 
     const hasTags = searchParams.has("tags");
 
-    const interMedium = await fetch(
-      new URL("../../../public/Inter-Medium.ttf", import.meta.url)
-    ).then((res) => res.arrayBuffer());
+    const interMedium = await fetchInterMedium();
 
-    const interBold = await fetch(
-      new URL("../../../public/Inter-Bold.ttf", import.meta.url)
-    ).then((res) => res.arrayBuffer());
+    const interBold = await fetchInterBold();
 
     return new ImageResponse(
       <ImageComponent path={path} title={title} hasTags={hasTags} />,
@@ -199,7 +203,7 @@ export default async function handler(req: NextRequest) {
         ],
       }
     );
-  } catch (error) {
+  } catch (_error) {
     return new Response(`Failed to generate the image`, {
       status: 500,
     });
