@@ -1,7 +1,6 @@
-import { ComponentPropsWithoutRef } from "react";
 import { cn } from "@utils/cn";
 
-export const SuccessIcon = (props: ComponentPropsWithoutRef<"svg">) => {
+export const MenuIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   const { className, ...otherProps } = props;
   return (
     <svg
@@ -10,13 +9,13 @@ export const SuccessIcon = (props: ComponentPropsWithoutRef<"svg">) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
-      className={cn("h-5 w-5", className)}
+      className={cn("h-6 w-6", className)}
       {...otherProps}
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M4.5 12.75l6 6 9-13.5"
+        d="M3.75 9h16.5m-16.5 6.75h16.5"
       />
     </svg>
   );

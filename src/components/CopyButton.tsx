@@ -1,9 +1,9 @@
 "use client";
 
 import { useClipboard } from "@hooks/useClipboard";
-import { CopyIcon } from "./CopyIcon";
-import { SuccessIcon } from "./SuccessIcon";
-import { ErrorIcon } from "./ErrorIcon";
+import { CopyIcon } from "./icons/CopyIcon";
+import { SuccessIcon } from "./icons/SuccessIcon";
+import { ErrorIcon } from "./icons/ErrorIcon";
 
 export const CopyButton = ({ code }: { code: string }) => {
   const clipboard = useClipboard();

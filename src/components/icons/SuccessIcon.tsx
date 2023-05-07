@@ -1,7 +1,6 @@
-import { ComponentPropsWithoutRef } from "react";
 import { cn } from "@utils/cn";
 
-export const ErrorIcon = (props: ComponentPropsWithoutRef<"svg">) => {
+export const SuccessIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   const { className, ...otherProps } = props;
   return (
     <svg
@@ -16,7 +15,7 @@ export const ErrorIcon = (props: ComponentPropsWithoutRef<"svg">) => {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
+        d="M4.5 12.75l6 6 9-13.5"
       />
     </svg>
   );

@@ -1,7 +1,6 @@
-import { ComponentPropsWithoutRef } from "react";
 import { cn } from "@utils/cn";
 
-export const EyeIcon = (props: ComponentPropsWithoutRef<"svg">) => {
+export const EyeIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   const { className, ...otherProps } = props;
   return (
     <svg

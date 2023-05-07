@@ -1,5 +1,5 @@
 import { components } from "src/library/components";
-import { Preview } from "@components/preview/Preview";
+import { Preview } from "@components/Preview";
 import {
   ProseH1,
   ProseH3,

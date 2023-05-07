@@ -1,10 +1,10 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/Tabs";
-import { ProseSubtle } from "../Typography";
+import { ProseSubtle } from "./Typography";
 import { CopyButton } from "./CopyButton";
-import { CodeIcon } from "./CodeIcon";
-import { EyeIcon } from "./EyeIcon";
+import { CodeIcon } from "./icons/CodeIcon";
+import { EyeIcon } from "./icons/EyeIcon";
 import { ReactNode } from "react";
 import { Resizable } from "re-resizable";
 
